@@ -1,3 +1,4 @@
+import pageRoutes from './router.config';
 
 // ref: https://umijs.org/config/
 export default {
@@ -9,10 +10,8 @@ export default {
       dynamicImport: true,
       title: 'umijsDemo',
       dll: true,
-      routes: {
-        exclude: [],
-      },
       hardSource: true,
     }],
   ],
+  routes: pageRoutes,
 }

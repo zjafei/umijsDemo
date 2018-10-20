@@ -6,3 +6,8 @@ html, body, #root {
 body {
   margin: 0;
 }
+
+.homeLayout{
+  background-color: #000;
+  color: #fff;
+}
