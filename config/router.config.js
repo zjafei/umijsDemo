@@ -3,14 +3,12 @@ export default [
     path: '/user', component: '../layouts/userLayout',
     routes: [
       { path: '/user', component: './user' },
-
     ],
   },
   {
     path: '/', component: '../layouts/baseLayout',
     routes: [
-      { path: '/', redirect: '/home' },
-      { path: '/home', component: './home' },
+      { path: '/', component: './home' },
       {
         component: '404',
       },
