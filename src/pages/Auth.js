@@ -1,9 +1,10 @@
 export default (props) => {
   console.log(props.children);
+  const hasAuth = false; // 根据权限的控制来渲染不同的组件
   return (
-    <h1>
+    <div>
       this is auth components.
-    {props.children}
-    </h1>
+    {hasAuth === true ? props.children : <h1>NO AUTH</h1>}
+    </div>
   )
 };
