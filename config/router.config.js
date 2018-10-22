@@ -3,7 +3,7 @@ export default [
     path: '/user',
     component: '../layouts/userLayout',
     Routes: ['src/pages/Auth'],
-    authority: 'xxx',
+    authority: false,
     routes: [
       { path: '/user', component: './user' },
       { path: '/user/setting', component: './user' },
