@@ -6,7 +6,7 @@ export default [
     component: '../layouts/userLayout',
     routes: [
       {
-        path: '/user',
+        path: '/user/:id([0-9]+)',
         Routes: ['src/pages/Auth'],
         authority: false,
         component: './user'
@@ -15,13 +15,20 @@ export default [
     ],
   },
   {
+    path: '/test',
+    Routes: ['src/pages/a','src/pages/b'],// 组件按数组顺序嵌套 后一个组件作为前一个组件的children
+    component: './testPage',
+  },
+  {
     path: '/',
     routes: [
-      { path: '/', component: './home' },
+      {
+        path: '/',
+        component: './home',
+      },
       {
         component: '404',
       },
     ],
   },
-
 ];

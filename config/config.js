@@ -1,9 +1,8 @@
 import pageRoutes from './router.config';
 
-// ref: https://umijs.org/config/
+console.log(process.env.TEST);
 export default {
   plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
       antd: true,
       dva: true,
@@ -14,4 +13,7 @@ export default {
     }],
   ],
   routes: pageRoutes,
+  define: {
+    EVN: 'ok',
+  },
 }
