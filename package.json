@@ -30,6 +30,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "react-router-breadcrumbs-hoc": "^2.1.5",
     "react-transition-group": "^2.5.0"
   }
 }
