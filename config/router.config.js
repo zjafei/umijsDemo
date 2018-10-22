@@ -21,10 +21,15 @@ export default [
   },
   {
     path: '/',
+    component: '../layouts/baseLayout',
     routes: [
       {
         path: '/',
         component: './home',
+      },
+      {
+        path: '/a',
+        component: './404',
       },
       {
         component: '404',
