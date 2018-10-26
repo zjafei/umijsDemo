@@ -32,6 +32,14 @@ export default [
         component: './404',
       },
       {
+        path: '/dynamic',
+        component: './dynamic',
+      },
+      {
+        path: '/prompt',
+        component: './prompt'
+      },
+      {
         component: '404',
       },
     ],

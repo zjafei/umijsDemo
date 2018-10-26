@@ -5,6 +5,7 @@ import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 const routes = [
   { path: '/', breadcrumb: '首页' },
   { path: '/a', breadcrumb: 'A页面' },
+  { path: '/dynamic', breadcrumb: 'dynamic页面' },
 ];
 
 export default withBreadcrumbs(routes)(({ breadcrumbs }) => (
