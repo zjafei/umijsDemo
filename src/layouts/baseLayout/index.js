@@ -6,7 +6,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export default withRouter(
   (props) => {
-    console.log(props);
+    console.log('withRouter组件的 props：', props);
     /***
      * children 子级组件
      * history 历史纪录

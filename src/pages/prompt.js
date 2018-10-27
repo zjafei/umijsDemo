@@ -3,7 +3,7 @@ import Prompt from 'umi/prompt';
 export default () => {
   return (
     <>
-      <h1>Prompt</h1>
+      <h1>this is Prompt</h1>
       <Prompt
         when={true}
         message={(location) => {

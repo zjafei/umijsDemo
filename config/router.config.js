@@ -6,7 +6,7 @@ export default [
     component: '../layouts/userLayout',
     routes: [
       {
-        path: '/user/:id([0-9]+)',
+        path: '/user',
         Routes: ['src/pages/Auth'],
         authority: false,
         component: './user'
