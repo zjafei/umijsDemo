@@ -1,3 +1,4 @@
+import alias from './alias.config';
 import browserslist from './browserslist.config';
 import context from './context.config';
 import define from './define.config';
@@ -26,9 +27,10 @@ export default {
   context: context, // 模板页面会获取context的内容。
   exportStatic: false, // 每个路由都生成一个对应的静态页面 但是路由不能是动态路由(/a/:id)
   chainWebpack: webpage, // 通过 webpack-chain 的 API 扩展或修改 webpack 配置。
-  theme: theme, // 配置全局的less变量
+  theme: theme, // 配置全局的less变量 网站所有的less文件都可以使用
   define: define, // 通过 webpack 的 DefinePlugin 传递给代码，值会自动做 JSON.stringify 处理
   externals: externals, // 配置 webpack 的 externals 属性
+  alias: alias, // 配置 webpack 的 resolve.alias 属性
   browserslist: browserslist, // 配置浏览器兼容情况 查询网址 https://browserl.ist,
   routes: routes,
 }

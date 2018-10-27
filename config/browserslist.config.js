@@ -1,4 +1,4 @@
-export default [ // 配置浏览器兼容情况 查询网址 https://browserl.ist
+export default [
   '> 1%', // 市场占有率大于 1%
   "last 2 versions", // 最新的两个版本
   "Android >= 3.2", // Android 系统大于等于 3.2 版本
