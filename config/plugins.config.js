@@ -16,7 +16,7 @@ export default [
     routes: {
       exclude: [/models\//],
     },
-    polyfills: ['ie9'],
+    // polyfills: ['ie9'], // umi-plugin-polyfills 已经弃用, 使用 配置文件的 targets 代替
     // locale: {},
     // library: 'react',
     // dynamicImport: {
