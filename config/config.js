@@ -34,5 +34,5 @@ export default {
   externals: externals, // 配置 webpack 的 externals 属性
   alias: alias, // 配置 webpack 的 resolve.alias 属性
   browserslist: browserslist, // 配置浏览器兼容情况 查询网址 https://browserl.ist,
-  routes: routes,
+  // routes: routes,
 };
