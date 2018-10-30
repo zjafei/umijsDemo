@@ -5,11 +5,22 @@ export interface TsdemoProps {
   sex: boolean
 }
 
-export default class Tsdemo extends React.Component<TsdemoProps, any> {
+export interface TsdemoStates {
+  stateA: string,
+  stateB: string
+}
+
+export default class Tsdemo extends React.Component<TsdemoProps, TsdemoStates> {
+  constructor(props: TsdemoProps) {
+    super(props);
+    this.state = {
+      stateA: 'stateA',
+      stateB: 'stateA'
+    };
+  }
+
   render() {
     const { text } = this.props;
-    let isDone: boolean = false;
-    isDone = false;
     return (
       <div>
         {text}
