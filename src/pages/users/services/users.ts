@@ -1,13 +1,46 @@
-interface StringArray {//定义了一个字符串数组
-  readonly [index: number]: string; // readonly 索引签名设置为只读，这样就防止了给索引赋值
+// 定义class的实例属性
+interface ClockInterface {// class 的接口定义
+  currentTime: Date;
+  setTime(d: Date);
 }
 
-let myArray: StringArray;
-myArray = ["Bob", "Fred"];
+class ClockA implements ClockInterface {
+  currentTime: Date;
+  setTime(d: Date) {
+    this.currentTime = d;
+  }
+  constructor(h: number, m: number) { }
+}
 
-let myStr: string = myArray[0];
+// 如何定义class的构造器函数
+// 如何定义class的静态办法(class自己的方法和属性)
+interface ClockConstructor {// 规范了构造器函数的实现
+  new(hour: number, minute: number): ClockConstructorInterface;
+}
+interface ClockConstructorInterface {// 规范了实例属性的实现
+  tick();
+}
 
-console.log(myStr);
+function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockConstructorInterface {
+  return new ctor(hour, minute);
+}
+
+class DigitalClock implements ClockConstructorInterface {
+  constructor(h: number, m: number) { }
+  tick() {
+    console.log("beep beep");
+  }
+}
+
+class AnalogClock implements ClockConstructorInterface {
+  constructor(h: number, m: number) { }
+  tick() {
+    console.log("tick tock");
+  }
+}
+
+let digital = createClock(DigitalClock, 12, 17);
+let analog = createClock(AnalogClock, 7, 32);
 
 const enum Method { get = 'get', post = 'post' };
 
