@@ -5,7 +5,7 @@ import define from './define.config';
 import externals from './externals.config';
 import plugins from './plugins.config';
 import proxy from './proxy.config';
-import routes from './router.config';
+// import routes from './router.config';
 import theme from './theme.config';
 import webpage from './webpage.config';
 
