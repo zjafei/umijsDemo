@@ -1,21 +1,26 @@
-interface Shape {
-  color: string;
-  [anpProp: string]: any;
+interface Counter {
+  (prop: number): string;
+  interval: number;
+  reset(): void;
 }
 
-interface PenStroke {
-  penWidth: number;
+function getCounter(): Counter {
+  let counter = <Counter>function (start: number) {
+    counter.interval = start;
+  };
+  counter.interval = 0;
+  counter.reset = function () {
+    counter.interval = 0;
+  };
+  return counter;
 }
 
-interface Square extends Shape, PenStroke {
-  sideLength: number;
-}
-
-let square = <Square>{};
-square.color = 'red';
-square.sideLength = 3;
-square.penWidth = 2;
-square.isTrue = true;
+let cer = getCounter();
+console.log('from getCounter', cer.interval);
+cer(101);
+console.log('from cer', cer.interval);
+cer.reset();
+console.log('from reset', cer.interval);
 
 const enum Method { get = 'get', post = 'post' };
 
