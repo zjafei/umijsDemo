@@ -1,12 +1,13 @@
-interface SearchFunc {// 函数的接口定义
-  (paramA: string, paramB: string): boolean;
+interface StringArray {//定义了一个字符串数组
+  readonly [index: number]: string; // readonly 索引签名设置为只读，这样就防止了给索引赋值
 }
 
-let mySearch: SearchFunc;
-mySearch = function (source: string, subString: string): boolean {
-  let result = source.search(subString);
-  return result > -1;
-}
+let myArray: StringArray;
+myArray = ["Bob", "Fred"];
+
+let myStr: string = myArray[0];
+
+console.log(myStr);
 
 const enum Method { get = 'get', post = 'post' };
 
