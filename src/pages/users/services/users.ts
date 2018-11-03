@@ -1,46 +1,21 @@
-// 定义class的实例属性
-interface ClockInterface {// class 的接口定义
-  currentTime: Date;
-  setTime(d: Date);
+interface Shape {
+  color: string;
+  [anpProp: string]: any;
 }
 
-class ClockA implements ClockInterface {
-  currentTime: Date;
-  setTime(d: Date) {
-    this.currentTime = d;
-  }
-  constructor(h: number, m: number) { }
+interface PenStroke {
+  penWidth: number;
 }
 
-// 如何定义class的构造器函数
-// 如何定义class的静态办法(class自己的方法和属性)
-interface ClockConstructor {// 规范了构造器函数的实现
-  new(hour: number, minute: number): ClockConstructorInterface;
-}
-interface ClockConstructorInterface {// 规范了实例属性的实现
-  tick();
+interface Square extends Shape, PenStroke {
+  sideLength: number;
 }
 
-function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockConstructorInterface {
-  return new ctor(hour, minute);
-}
-
-class DigitalClock implements ClockConstructorInterface {
-  constructor(h: number, m: number) { }
-  tick() {
-    console.log("beep beep");
-  }
-}
-
-class AnalogClock implements ClockConstructorInterface {
-  constructor(h: number, m: number) { }
-  tick() {
-    console.log("tick tock");
-  }
-}
-
-let digital = createClock(DigitalClock, 12, 17);
-let analog = createClock(AnalogClock, 7, 32);
+let square = <Square>{};
+square.color = 'red';
+square.sideLength = 3;
+square.penWidth = 2;
+square.isTrue = true;
 
 const enum Method { get = 'get', post = 'post' };
 
