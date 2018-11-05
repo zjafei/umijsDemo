@@ -1,5 +1,5 @@
 class Control {// 基本控制器
-  private state: any;// private 限制了通过接口去实现
+  private state: any;// private 限制了通过直接通过继承这个类的接口去实现一个类
 }
 
 interface SelectableControl extends Control {// SelectableControl在Control的基础上添加了select的抽象方法
