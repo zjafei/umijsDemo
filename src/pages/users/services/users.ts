@@ -1,47 +1,42 @@
-// 为函数定义类型
-function add(x: number, y: number): number {
-  return x + y;
+//泛型 就是不确定输出和输入类型 但是通过函数名称后的<>(反内心变脸来做个相对的规范)
+// 不同于any 类型 any 不能规范 输入与输出的关系的对应
+// 泛型函数
+function demo<T>(param: T): T {
+  return param;
 }
 
-let myAdd: (baseValue: number, increment: number) => number = function (x: number, y: number): number { return x + y; };
-
-// 函数参数的个数
-function point(x: number, y: number): { x: number; y: number } {
-  return { x, y };
+function identity<T>(arg: T): T {
+  return arg;
 }
 
-point(1);// 少参数
-point(1, 1, 0);// 多参数
-point(1, 1);
+// 泛型的参数的类型不能确定
+demo<string>('');// 输入 string 输出 string
+demo<number>(0);// 输入 number 输出 number
+demo(true);// 输入 boolean 输出 boolean 这里省略了<boolean>
+demo<null[]>([null])// 输入 null 类型的数组 输出 null类型的数组
 
-// 参数的默认值和可选参数
-function buildName(firstName: string, middleName = '正', lastName?: string) {// 第二个参数有默认值 第三个参数为可选参数
-  return lastName ? `${firstName}${middleName} ${lastName}` : firstName;
+// 这里的 T 只是一个类型的变量 可以为任意的名称
+let newIdentity: <D>(arg: D) => D = function <T>(params: T): T {
+  return params;
+};
+
+// 泛型函数接口
+interface GenericIdentityFn {
+  <T>(arg: T): T;
 }
 
-let result1 = buildName("马");                  // 少参数
-let result2 = buildName("马", "万", "正");  // 多参数
-let result3 = buildName("马", "正");         // 正好
+let myIdentity: GenericIdentityFn = function <D>(params?: D): D {
+  return params;
+};
 
-// 剩余参数
-function listItem(teacher: string,...students:string[]):string {
-  return teacher + ' ' + students.join(' ');
+// 泛型参数当作整个接口的一个参数
+interface GenericIdentityFnParams<T> {
+  (arg: T): T;
 }
 
-// 函数的重载 （函数返回类型，参数的个数，参数的类型决定重载）
-let suits = ["hearts", "spades", "clubs", "diamonds"];
-function pickCard(x: {suit: string; card: number; }[]): number;
-function pickCard(x: number): {suit: string; card: number; };
-function pickCard(x): any {
-    if (typeof x === "object") {
-        let pickedCard = Math.floor(Math.random() * x.length);
-        return pickedCard;
-    }
-    else if (typeof x === "number") {
-        let pickedSuit = Math.floor(x / 13);
-        return { suit: suits[pickedSuit], card: x % 13 };
-    }
-}
+// 具体化了泛型为number
+let identityNew: GenericIdentityFnParams<number> = identity;
+identityNew(0);
 
 const enum Method { get = 'get', post = 'post' };
 
