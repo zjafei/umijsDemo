@@ -33,6 +33,6 @@ export default {
   define: define, // 通过 webpack 的 DefinePlugin 传递给代码，值会自动做 JSON.stringify 处理
   externals: externals, // 配置 webpack 的 externals 属性
   alias: alias, // 配置 webpack 的 resolve.alias 属性
-  browserslist: browserslist, // 配置浏览器兼容情况 查询网址 https://browserl.ist,
+  // browserslist: browserslist, // 配置浏览器兼容情况 查询网址 https://browserl.ist, (已经被targets代替)
   // routes: routes,
 };
