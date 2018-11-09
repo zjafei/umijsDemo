@@ -1,4 +1,4 @@
-//泛型 就是不确定输出和输入类型 但是通过函数名称后的<>(反内心变脸来做个相对的规范)
+// 泛型 就是对类型的抽象
 // 不同于any 类型 any 不能规范 输入与输出的关系的对应
 // 泛型函数
 function demo<T>(param: T): T {
@@ -37,6 +37,36 @@ interface GenericIdentityFnParams<T> {
 // 具体化了泛型为number
 let identityNew: GenericIdentityFnParams<number> = identity;
 identityNew(0);
+
+// 泛型类
+class GenericNumber<T> {
+  zeroValue: T;
+  add: (x: T, y: T) => T;
+}
+
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function (x, y) { return x + y; };
+
+// 泛型的约束
+
+interface HasLength {
+  length: number;
+}
+
+function justHasLength<T extends HasLength>(param: T): T {
+  return param;
+};
+
+justHasLength(true);
+justHasLength(0);
+justHasLength({length:0});
+justHasLength([]);
+justHasLength('');
+
+/*********************
+ * 泛型就是对类型的抽象
+ *********************/
 
 const enum Method { get = 'get', post = 'post' };
 
